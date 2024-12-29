@@ -19,6 +19,7 @@
   align-items: center; /* Center items vertically */
   padding: 15px; /* Padding around the navbar */
 }
+
 .navbar-header {
   display: flex; /* Flexbox for header layout */
   align-items: center; /* Center icon and title vertically */
@@ -37,8 +38,11 @@
   font-size: 24px; /* Larger font size for the title */
   margin: 0; /* Remove margin for the title */
   font-family: cursive;
+  color: #000;
 }
-
+.navbar-title:hover {
+  color: white;
+}
 .navbar-button {
   background-color: white; /* White background for the button */
   color: #4CAF50; /* Green text color */
@@ -59,24 +63,6 @@
   color: #0f0f0f;
 }
 
-/* Basic Reset */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-button {
-  margin-right: 20px; /* Add a gap to the left of the button */
-}
-
-select {
-  width: 200px; /* Increase the width */
-  height: 35px; /* Increase the height for better visibility */
-  font-size: 16px; /* Increase font size for better readability */
-  padding: 5px; /* Add some padding */
-  border-radius: 5px; /* Optional: round the corners */
-  border: 1px solid #ccc; /* Optional: border styling */
-}
 /* Set basic styles for the body */
 body {
   font-family: Arial, sans-serif;
@@ -84,11 +70,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
 /* Styles for the heading */
 h1 {
   text-align: center; /* Center the heading */
   color: #333; /* Dark gray color */
 }
+
 /* Input field styling */
 input[type="text"] {
   width: calc(70% - 22px); /* Full width minus padding */
@@ -98,6 +86,7 @@ input[type="text"] {
   border-radius: 4px; /* Rounded borders */
   font-size: 16px; /* Font size for the input */
 }
+
 /* Button styling */
 button {
   padding: 10px 15px; /* Padding for button */
@@ -107,11 +96,13 @@ button {
   border-radius: 4px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 16px; /* Font size for button */
+  margin-left: 16px;
 }
 
 button:hover {
   background-color: #218838; /* Darker green on hover */
 }
+
 /* Table styling */
 table {
   width: 70%; /* Full width */
@@ -138,118 +129,7 @@ ul {
   padding: 0;
   list-style-type: none;
 }
-/* Responsive Design */
-@media (max-width: 600px) {
-  .navbar-button {
-    color: white;
-    text-decoration: none; /* Removes underline */
-    padding: 10px 15px;
-    margin: 0 5px;
-    background-color: transparent; /* Ensure it's visually consistent */
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
 
-  .navbar-button:hover {
-    background-color: #555; /* Highlight on hover */
-    color: white;
-  }
-
-  .navbar-button:active {
-    background-color: #777;
-  }
-
-  /* Optional: Style the active link if needed */
-  .navbar-button-active {
-    font-weight: bold;
-    color: #ff0;
-}
-  /* Slider Container */
-.slider-container {
-  width: 100%;
-  max-width: 900px;
-  height: 500px; /* Fixed height for all images */
-  margin: 30px auto;
-  overflow: hidden; /* Hide overflowing images */
-  position: relative;
-  border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Elevated shadow */
-  background-color: #000; /* Fallback background */
-}
-
-/* Slider Image */
-.slider-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Maintain aspect ratio */
-  position: absolute; /* Absolute positioning for sliding effect */
-  top: 0;
-  left: 100%; /* Off-screen to the right */
-  opacity: 0; /* Hidden by default */
-  transform: scale(1.1); /* Slight zoom for inactive images */
-  transition: 
-      transform 0.5s ease-in-out,
-      opacity 1.5s ease-in-out,
-      left 1.5s ease-in-out; /* Smooth animations */
-}
-
-/* Active Image */
-.slider-image.active {
-  left: 0; /* Center the active image */
-  opacity: 1; /* Fully visible */
-  transform: scale(1); /* Slight zoom-in effect */
-  z-index: 2; /* Bring active image to the front */
-}
-
-/* Previous Image */
-.slider-image.previous {
-  left: -100%; /* Move off-screen to the left */
-  opacity: 0; /* Fade out */
-  z-index: 1; /* Push behind the active image */
-}
-
-/* Add overlay for a more polished look */
-.slider-container::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
-  z-index: 3; /* Overlay on top of images */
-  pointer-events: none; /* Allow interactions with underlying elements */
-}
-
-/* Add caption style */
-.slider-caption {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-  z-index: 4;
-  animation: slideInLeft 1s ease-in-out; /* Replace with the desired animation */
-}
-
-/* Caption animation */
-@keyframes fadeInUp {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-}
 /* Image Container */
 .image-container {
   display: flex; /* Flexbox to center the image */
@@ -322,28 +202,64 @@ ul {
   pointer-events: none; /* Allow interactions with underlying elements */
 }
 
-/* Add caption style */
 .slider-caption {
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-  z-index: 4;
-  animation: slideInLeft 1s ease-in-out; /* Replace with the desired animation */
+  z-index: 5;
+  animation: spinFadeIn 1.2s ease-out; /* Replace with the desired animation */
 }
 
-/* Caption animation */
-@keyframes fadeInUp {
+
+@keyframes wobbleIn {
   0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateX(-100%) rotate(-10deg);
+  }
+  50% {
+      opacity: 0.5;
+      transform: translateX(20px) rotate(10deg);
   }
   100% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateX(0) rotate(0deg);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .navbar-button {
+      width: 100%;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 5px;
+  }
+
+  .slider-caption {
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+      font-size: 1.2em;
+  }
+
+  .navbar-button {
+      padding: 12px 0;
+  }
+
+  .slider-caption {
+      font-size: 0.8em;
   }
 }
