@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AnimalInfo from './AnimalInfo'; // Import AnimalInfo component
 import DogInfo from './Doginfo'; // Import DogInfo component 
+import CatInfo from './CatInfo'; // Import CatInfo component 
 import './App.css'; // Import CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
@@ -95,6 +96,12 @@ const App = () => {
                     >
                         Know Dog Info
                     </Link>
+                    <Link
+                        to="/cat-info"
+                        className="navbar-button no-underline"
+                    >
+                        Know Cat Info
+                    </Link>
                 </nav>
 
                 {/* Routes */}
@@ -128,6 +135,8 @@ const App = () => {
                     <Route path="/animal-info" element={<AnimalInfo />} />
                     {/* Dog Info page */}
                     <Route path="/dog-info" element={<DogInfo />} />
+                    {/* Cat Info page */}
+                    <Route path="/cat-info" element={<CatInfo/>} />
                 </Routes>
             </div>
         </Router>
